@@ -1,0 +1,26 @@
+name: Find Helm Chart
+description: Determines the helm chart to install
+tools: github.com/gptscript-ai/browser, github.com/gptscript-ai/browser-search/google, sys.chat.finish, sys.workspace.write
+chat: true
+
+Do the following steps
+
+1. Ask the which helm chart they liked to install. A name or description.
+2. Search google to find an appropriate helm chart name matching the users description. Ask the user to confirm the helm chart name.
+3. Once you know the name of the helm chart refer to https://artifacthub.io/packages/search?ts_query_web=%s to find the specific version and repo of the chart.
+4. If multiple version are available pick a stable version over a beta, alpha, or release candidate.  Also prefer a chart that is official or from the upstream project unless ${description} says otherwise.
+5. Ask the user to confirm the result
+6. Write following json struction to chart.json in the workspace.
+
+```json
+{
+    // Chart name
+    "name": "$name"
+    // The repo holding the chart, this must be a full URL that can be passed to "helm repo add"
+    "repo": "$repo"
+    // The version to install
+    "version": "$version"
+}
+```
+
+7. Finish the chat session. Do not ask to further assist, the session is complete.

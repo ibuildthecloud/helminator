@@ -1,0 +1,8 @@
+description: Sets up helm repo
+tools: sys.workspace.read, sys.exec?
+
+
+1. Read the workspace file chart.json to get the helm info
+2. List the current helm repos, if the $repo is not registered add it
+3. Update the helm repo to ensure we have the latest index
+4. Ensure the chart $name at version $version is available to install

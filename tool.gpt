@@ -1,0 +1,11 @@
+tools: find.gpt, instructions.gpt, repo.gpt, install.gpt, values.gpt, sys.chat.finish
+chat: true
+
+Do the following sequentially, do not run in parallel
+
+1. Determine the helm chart to install
+2. Generate the instructions to the desired helm chart.
+3. Set up the helm repo
+4. Generate values.yaml
+5. Install the chart
+6. Ya done, finish

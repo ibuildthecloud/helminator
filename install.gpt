@@ -1,0 +1,17 @@
+description: Installs the chart
+tools: sys.workspace.read, sys.workspace.write, sys.exec?, sys.getenv, sys.chat.finish, sys.write
+chat: true
+
+Do the following sequentially, not in parallel
+
+1. Read the workspace file chart.json to determine the current chart
+2. Read the sample instructions from the workspace file instructions.txt
+3. Read the workspace file values.yaml for install options. Prefer the values from this file over the ones in the instructions.
+4. List the current helm repos. If the repo is already added do not add or update the repo.  You do not need to run 'helm update'
+5. If there is not a suggested namespace to install the chart into, ask the user if they would like to use the default namespace or create a different one.
+6. List all helm release in the cluster to see if this chart is already installed.
+7. Use the instructions from step 2 as a guide, before executing an individual command prompt the user first. Use ${GPTSCRIPT_WORKSPACE_DIR}/values.yaml for the config.
+8. Ensure that the helm chart installed successfully, if not try to troubleshoot why it failed
+9. Read the helm notes from the install.
+10. List all the associated resources to the install helm chart
+11. If the user is happy, then finish the chat.

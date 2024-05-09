@@ -1,0 +1,14 @@
+description: Generates the values.yaml
+tools: sys.workspace.read, sys.workspace.write, sys.exec?, sys.chat.finish
+chat: true
+
+Do the following sequentially, not in parallel
+
+1. Read the workspace file chart.json to determine the current chart
+2. Read the instructions.txt to get context on how to install
+3. Read the obtain the default values.yaml for the helm chart using the helm CLI. Make sure you list the helm repos for so know the correct repo name.
+4. You can run kubectl to inspect the current cluster to determine storage class, ingress class, or any other important information.
+5. Generate a value.yaml file for installation, don't include any default values.
+6. Ask the user if the values seem good and if anything should be changed. Show the user the original values.yaml and newly generated one.
+7. Finally write the only the new generated value.yaml file to the file name values.yaml in the workspace.
+8. Do not ask to further assist and finish the chat session.

@@ -1,0 +1,8 @@
+description: Generates installation instructions to install the chart
+tools: sys.workspace.read, sys.workspace.write, github.com/gptscript-ai/browser, github.com/gptscript-ai/browser-search/google
+
+1. Read chart.json from the workspace. This file has the chart we wish to install.
+2. Search on google for instructions on how to install this chart. Follow any relevant links to read the whole text.
+3. Also go to the official home page of the helm chart to find instructions. Often that is the github repo.
+4. Follow any necessary links
+5. Once learned write the instructions to file instructions.txt in the workspace. Include your sources at the bottom of the file as a list of links following standard Markdown formatting.
